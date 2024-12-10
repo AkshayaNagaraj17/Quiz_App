@@ -34,6 +34,14 @@ function QuizApp()
 
         }
     }
+    function reset()
+    {
+        setIndex(0)
+        setQuestion(data[0])
+        setLock(false)
+        setScore(0)
+        setResult(false)
+    }
     function check(e,ans)
     {
        if(lock===false)
@@ -60,7 +68,8 @@ function QuizApp()
             <hr />
             {result? <>
             <h1 className="text-2xl font-bold mb-10">Here is your result !!!</h1>
-            <p className=" border border-purple-600 rounded p-3 text-lg bg-purple-400">You scored : {score}</p>
+            <p className=" border border-purple-600 rounded p-3 text-lg bg-purple-400">You scored  : {score}out of {data.length} < /p>
+            <button onClick={reset}>Restart</button>
             </>:<>
                 <h1>{index+1}.{question.question}</h1>
             <ul>
